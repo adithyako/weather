@@ -8,11 +8,22 @@
 
 <body>
 	<h1>Weather</h1>
-	<form action="http://localhost:3000/search" method="post">
+	<form action="http://127.0.0.1:5000/search" method="post">
     
-        <label>Latitude: <input type="text" name="user_lat"/></label>
-        <label>Longtitude: <input type="text" name="user_lon"></label>
-    
+		<fieldset> 
+			<legend>Search by GPS Coordinates</legend>
+			<label>Latitude: <input type="number" name="user_lat" step="any"/></label>
+			<label>Longtitude: <input type="number" name="user_lon" step="any"></label>
+		</fieldset> 
+
+		<fieldset> 
+			<legend>Search by City or Zip Code</legend>
+			<label>City: <input type="text" name="city_name" pattern = "[A-Za-z\s]+"/></label>
+			<label>State (US only): <input type="text" name="state" pattern = "[A-Z]{2}"/></label>
+			<label>Zip Code: <input type="text" name="zip_code" pattern = "\d{5}"></label>
+			<label>Country Code (if not USA): <input type="text" name="country_code" pattern = "[A-Z]{3}"/></label>
+		</fieldset> 
+
 		<br>
 		<input type="reset" />
 		<input type="submit" value="Search"/>
