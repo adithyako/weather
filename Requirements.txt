@@ -1,4 +1,7 @@
-- Import Flask, render_template, request, and jsonify from flask
-- Import PyMongo, flask-pymongo for MongoDB
+- Import Flask, render_template, and request from flask
+- Import install flask-sqlalchemy
 - Import datetime for date validation
+- Import folium
+- from folium.plugins import MarkerCluster
+- Import pandas as pd
 
