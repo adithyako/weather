@@ -1,41 +1,71 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8" />
-	<title>Results</title>
+  <meta charset="utf-8" />
+  <title>Weather Results</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: rgb(127, 223, 255);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <style>
-        .center {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-    </style>
+    .center {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
 
-    <body>
-        <div class = "center">
-            <h1>Weather Results</h1>
-            <br>
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
 
-            <h3>{{location}}</h3>
-            <img src = "https://openweathermap.org/img/wn/{{icon}}@2x.png">
-            <h2>{{temp}}°F</h2>
+    h2, h3 {
+      margin: 0.5em 0;
+      color: #555;
+    }
 
-            <p>{{main}}</p>
-            <p>{{description}}</p>
+    p {
+      margin: 0.3em 0;
+      color: #444;
+    }
 
-            <p>Min: {{min}}°</p>
-            <p>Max: {{max}}°</p>
-            <p>Humidity: {{humidity}}</p>
-            <p>Wind: {{w_speed}}</p>
+    img {
+      width: 100px;
+      height: auto;
+    }
 
-            <br>
-            <!-- <p>Forecast: {{forecast}} </p> -->
-            <iframe src="{{ url_for('static', filename='map.html') }}" width="30%" height="300" style="border:none;"></iframe>
-        </div>
-    </body>
+    iframe {
+      margin-top: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
 </head>
+<body>
+  <div class="center">
+    <h1>Weather Results</h1>
+    <h3>{{ location }}</h3>
+    <img src="https://openweathermap.org/img/wn/{{ icon }}@2x.png" alt="weather icon">
+    <h2>{{ temp }}°F</h2>
 
+    <p><strong>Conditions:</strong> {{ main }}</p>
+    <p><strong>Min:</strong> {{ min }}°  <strong>Max:</strong> {{ max }}°</p>
+    <p><strong>Humidity:</strong> {{ humidity }}%</p>
+    <p><strong>Wind:</strong> {{ w_speed }}</p>
+
+    <iframe src="{{ url_for('static', filename='map.html') }}" width="100%" height="300" style="border:none;"></iframe>
+  </div>
+</body>
 </html>

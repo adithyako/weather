@@ -1,7 +1,6 @@
 - Import Flask, render_template, and request from flask
-- Import install flask-sqlalchemy
+- Import flask-sqlalchemy
 - Import datetime for date validation
 - Import folium
 - from folium.plugins import MarkerCluster
-- Import pandas as pd
 

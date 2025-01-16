@@ -99,7 +99,6 @@ def search():
             "icon" : data["weather"][0]["icon"],
             "temp" : data["main"]["temp"],
             "main" : data["weather"][0]["main"],
-            "description" : data["weather"][0]["description"],
             
             "min" : data["main"]["temp_min"],
             "max" : data["main"]["temp_max"],
